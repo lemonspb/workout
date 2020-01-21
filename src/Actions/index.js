@@ -16,10 +16,16 @@ const choicePushUp = (choice) => {
       payload: number
     };
   };
-   
+  const SumCountMinus = (number) => {
+    return {
+      type: 'SUM_MINUS',
+      payload: number
+    };
+  };
 
   export {
     choicePullUp,
     choicePushUp,
-    choiceSumCount
+    choiceSumCount,
+    SumCountMinus
   };

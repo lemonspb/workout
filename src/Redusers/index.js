@@ -1,7 +1,8 @@
 const initialState = {
     pushUp: false,
     pullUp: false,
-    sumCount: 0
+    sumCount: null,
+    minusSum: null,
   };
   
   const reducer = (state = initialState, action) => {
@@ -22,6 +23,12 @@ const initialState = {
                 ...state,
                 sumCount: action.payload
             };
+            case 'SUM_MINUS':
+                return {
+                    ...state,
+                    minusSum:action.payload,
+                    sumCount: state.sumCount-action.payload  
+                };
       default:
         return state;
     }

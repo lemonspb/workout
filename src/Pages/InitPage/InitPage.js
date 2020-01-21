@@ -8,7 +8,6 @@ import {Link} from 'react-router-dom'
 function InitPage(props) {
   return (
     <div className="init">
-      {props.choice}
       <Link to='/choice-count' onClick={()=>props.choicePullUp(true)}>
 <video muted autoPlay loop playsInline className='init__gif' >
  <source src={PullUp} type="video/mp4" />
@@ -23,15 +22,12 @@ function InitPage(props) {
   );
 }
 
-const mapStateToProps = ({ choice }) => {
-  return { choice };
-};
 
 const mapDispatchToProps = {
   choicePushUp,
   choicePullUp
 };
 export default 
-  connect(mapStateToProps,mapDispatchToProps)
+  connect(null,mapDispatchToProps)
 (InitPage);
 
