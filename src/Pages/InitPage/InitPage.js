@@ -1,18 +1,37 @@
 import React from 'react';
 import './InitPage.css';
+import { connect } from 'react-redux';
+import { choicePushUp,choicePullUp } from '../../Actions';
 import PullUp from '../../Gifs/pull_ups.gif.mp4';
 import PushUp from '../../Gifs/pushup.gif.mp4';
-function InitPage() {
+import {Link} from 'react-router-dom'
+function InitPage(props) {
   return (
     <div className="init">
-<video muted autoPlay loop playsInline className='init__gif' onClick=''>
+      {props.choice}
+      <Link to='/choice-count' onClick={()=>props.choicePullUp(true)}>
+<video muted autoPlay loop playsInline className='init__gif' >
  <source src={PullUp} type="video/mp4" />
 </video>
-<video muted autoPlay loop playsInline  className='init__gif' onClick=''>
+</Link> 
+<Link to='/choice-count' onClick={()=>props.choicePushUp(true)}>
+<video muted autoPlay loop playsInline  className='init__gif' >
  <source src={PushUp} type="video/mp4" />
 </video>
+</Link>
     </div>
   );
 }
 
-export default  InitPage;
+const mapStateToProps = ({ choice }) => {
+  return { choice };
+};
+
+const mapDispatchToProps = {
+  choicePushUp,
+  choicePullUp
+};
+export default 
+  connect(mapStateToProps,mapDispatchToProps)
+(InitPage);
+
