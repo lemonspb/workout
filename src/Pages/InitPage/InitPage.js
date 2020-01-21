@@ -5,10 +5,10 @@ import PushUp from '../../Gifs/pushup.gif.mp4';
 function InitPage() {
   return (
     <div className="init">
-<video autoPlay="autoplay" loop="loop" className='init__gif'>
+<video autoPlay loop="loop" className='init__gif' onClick=''>
  <source src={PullUp} type="video/mp4" />
 </video>
-<video autoPlay="autoplay" loop="loop"  className='init__gif'>
+<video autoPlay loop="loop"  className='init__gif' onClick=''>
  <source src={PushUp} type="video/mp4" />
 </video>
     </div>
