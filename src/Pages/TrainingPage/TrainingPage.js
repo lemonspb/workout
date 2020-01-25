@@ -19,13 +19,13 @@ function TrainingPage(props) {
     return () => clearInterval(intervalId.current);
   }, []);
 
-
+console.log(props.minusSum)
   return (
 
     <div className="trainig">
         <div className='training-container'> 
         <div className='trainig__top'>
-{props.minusSum.map((el)=>{
+{props.minusSum.length !==0?props.minusSum.map((el)=>{
     return(
         <div className='trainig__result'>
        <img  src={el.typeTrainingImage} alt='' className='type-trainig' />
@@ -33,7 +33,7 @@ function TrainingPage(props) {
             <div>{el.timeTraining}sec</div>
         </div> 
     )
-})}
+}):  <img  src={props.typeTrainingImage} alt='' className='type-trainig' />}
         </div>
    
         <div className='trainig__list'>
@@ -60,8 +60,8 @@ function TrainingPage(props) {
 }
 
 
-const mapStateToProps = ({ sumCount,minusSum,timeTraining }) => {
-  return { sumCount,minusSum,timeTraining };
+const mapStateToProps = ({ sumCount,minusSum,timeTraining,typeTrainingImage }) => {
+  return { sumCount,minusSum,timeTraining,typeTrainingImage };
 };
 
 const mapDispatchToProps = {
