@@ -15,9 +15,15 @@
     cursor: pointer;
     color: #000000;
    
-
 }
-
 .counter:hover{
 background-color: #FFFFFF;
+}
+.counter--dark{
+  background: #000000;
+  color: #FFFFFF;
+}
+.counter--dark:hover{
+  background: #000000;
+
 }

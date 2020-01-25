@@ -1,31 +1,35 @@
-const choicePushUp = (choice) => {
+const choiceTypeTraining = (file) => {
     return {
-      type: 'WORK_CHOICE_PUSHUP',
-      payload: choice
+      type: 'CHOICE_TRAINING_TYPE',
+      payload: file
     };
   };
-  const choicePullUp = (choice) => {
-    return {
-      type: 'WORK_CHOICE_PULLUP',
-      payload: choice
-    };
-  };
+ 
   const choiceSumCount = (number) => {
     return {
       type: 'CHOICE_SUM_COUNT',
       payload: number
     };
   };
-  const SumCountMinus = (number) => {
+  const loadMore = () => {
+    return {
+      type: 'LOAD_MORE',
+      
+    };
+  };
+  const SumCountMinus = (number,time) => {
     return {
       type: 'SUM_MINUS',
-      payload: number
+      payload: {
+          number:number,
+          time: time
+      }
     };
   };
 
   export {
-    choicePullUp,
-    choicePushUp,
+    choiceTypeTraining,
     choiceSumCount,
-    SumCountMinus
+    SumCountMinus,
+    loadMore
   };
