@@ -24,6 +24,7 @@ function ChoiceCountPage(props) {
 
       <div className="choice-count__list">
     {numbers.map((v,i)=>{
+      
         return(
             <div key={i}>
                       <Link to='/start-training/' className='choice-count__link' onClick={()=>{props.choiceSumCount(v)}}>
@@ -40,7 +41,7 @@ function ChoiceCountPage(props) {
     
     </div>
     </div>
-    <button onClick={()=>props.loadMore()}>more</button>
+    <button onClick={()=>props.loadMore()} className='choice-count__btn'>Load more</button>
     </div>
   );
 }

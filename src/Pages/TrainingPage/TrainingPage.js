@@ -2,7 +2,8 @@ import React,{useEffect,useState,useRef}from 'react';
 import { connect } from 'react-redux';
 import { SumCountMinus } from '../../Actions';
 import Counter from '../../Components/Counter/Counter';
-import { Scrollbars } from 'react-custom-scrollbars';
+import PullUp from '../../Gifs/pull_ups.gif.mp4';
+import PushUp from '../../Gifs/pushup.gif.mp4';
 import './TrainingPage.css'
 
 function TrainingPage(props) {
@@ -48,7 +49,10 @@ function TrainingPage(props) {
  
         </div>
     </div>
-    <div className='training__timer'>{count}sec</div>
+    {numbers.length === 0?<video muted autoPlay loop playsInline className='init__gif' >
+ <source src={PullUp} type="video/mp4" />
+</video>:<div className='training__timer'>{count}sec</div>}
+    
     
   
     </div>

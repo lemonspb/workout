@@ -6,12 +6,16 @@
     align-items: center;
 }
 .trainig__top{
+    width: 100%;
     display: flex;
 
 }
-.trainig__result{
-    margin-left: 10px;
+.training__result{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
 .training__timer{
     text-align: center;
     font-size: 34px;

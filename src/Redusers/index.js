@@ -6,7 +6,10 @@ const initialState = {
     sumCount: 90,
     minusSum: [],
     timeTraining: 1,
-    trainingElement: {}
+    trainingElement: {
+      typeTrainingImage:''
+      
+    }
   };
   
   const reducer = (state = initialState, action) => {
@@ -15,8 +18,10 @@ const initialState = {
       case 'CHOICE_TRAINING_TYPE':
         return {
             ...state,
-            typeTrainingImage: action.payload
-            
+            typeTrainingImage: action.payload,
+            trainingElement:{
+              typeTrainingImage:action.payload
+            }            
             };
             case 'CHOICE_SUM_COUNT':
             return {

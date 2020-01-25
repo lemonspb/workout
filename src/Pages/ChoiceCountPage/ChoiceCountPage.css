@@ -13,3 +13,13 @@
 .choice-count__link{
     text-decoration: none;
 }
+.choice-count__btn{
+    font-size: 16px;
+    background: #87dda1;
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: none;
+    margin: 10px 0;
+    cursor: pointer;
+
+}
