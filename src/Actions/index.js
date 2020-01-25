@@ -19,7 +19,7 @@ const choiceTypeTraining = (file) => {
   };
   const SumCountMinus = (number,time) => {
     return {
-      type: 'SUM_MINUS',
+      type: 'AMOUNT_COMPLETED',
       payload: {
           number:number,
           time: time

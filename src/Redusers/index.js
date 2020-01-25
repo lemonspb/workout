@@ -1,18 +1,16 @@
 
-const toDataURL = url => fetch(url)
-.then(response => response.blob())
-.then(blob => new Promise((resolve, reject) => {
-  const reader = new FileReader()
-  reader.onloadend = () => resolve(reader.result)
-  reader.onerror = reject
-  reader.readAsDataURL(blob)
-}))
+
 
 const initialState = {
     typeTrainingImage: '',
     sumCount: 90,
     minusSum: [],
-    timeTraining: 0
+    timeTraining: 0,
+    trainingElement:{
+     sumCount: '',
+     typeTrainingImage: '',
+     timeTraining: 0,
+    }
   };
   
   const reducer = (state = initialState, action) => {
@@ -21,8 +19,8 @@ const initialState = {
       case 'CHOICE_TRAINING_TYPE':
         return {
             ...state,
-            typeTrainingImage: toDataURL(action.payload)
-            .then(dataUrl =>dataUrl)
+            typeTrainingImage: action.payload
+            
             };
             case 'CHOICE_SUM_COUNT':
             return {
@@ -35,12 +33,18 @@ const initialState = {
                     ...state,
                     sumCount: state.sumCount*2    
                 };
-            case 'SUM_MINUS':
+            case 'AMOUNT_COMPLETED':
                 return {
+              
                     ...state,
-                    minusSum:[...state.minusSum,action.payload],
-                    sumCount: state.sumCount-action.payload.number,  
-                    timeTraining: action.payload.time
+                    sumCount:  state.sumCount-action.payload.number,
+                    trainingElement:{
+                    typeTrainingImage: state.typeTrainingImage,
+                     sumCount: action.payload.number,
+                     timeTraining: 0,
+                    },
+                      
+                    minusSum:[...state.minusSum,state.trainingElement],
                 };
       default:
         return state;

@@ -11,6 +11,8 @@ function StartTrainingPage(props) {
     <div className='training-container'> 
     <div className="start-trainig">
         <div className='start-trainig__top'>
+        <img  src={props.typeTrainingImage} alt='' className='type-trainig' />
+
             <Counter  number={props.sumCount} className='counter--dark'/>
         </div>
         <div className='start-trainig__list'>
@@ -25,8 +27,8 @@ function StartTrainingPage(props) {
 }
 
 
-const mapStateToProps = ({ sumCount }) => {
-  return { sumCount };
+const mapStateToProps = ({ sumCount,typeTrainingImage }) => {
+  return { sumCount,typeTrainingImage };
 };
 
 const mapDispatchToProps = {

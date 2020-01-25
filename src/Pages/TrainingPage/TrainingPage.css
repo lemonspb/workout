@@ -5,3 +5,10 @@
     flex-wrap: wrap;
     align-items: center;
 }
+.trainig__top{
+    display: flex;
+
+}
+.trainig__result{
+    margin-left: 10px;
+}

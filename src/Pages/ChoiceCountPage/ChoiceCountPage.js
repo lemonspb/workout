@@ -7,7 +7,6 @@ import {Link} from 'react-router-dom'
 import { choiceSumCount,loadMore } from '../../Actions';
 function ChoiceCountPage(props) {
     const numbers = new Array(props.sumCount).fill(0).map((v, i) => i+1)
-  console.log(props.typeTrainingImage.then((val)=>val))  
 // useEffect(()=>{
 //   console.log(window.pageYOffset)
 //   window.scrollTo({
@@ -15,11 +14,12 @@ function ChoiceCountPage(props) {
 //     behavior: "smooth"
 // });
 // },[props.sumCount])
-
   return (
     <div className='training-container'> 
 <div className="choice-count">
       <div className="choice-count__top">
+
+        <img  src={props.typeTrainingImage} alt='' className='type-trainig' />
     </div>  
 
       <div className="choice-count__list">
