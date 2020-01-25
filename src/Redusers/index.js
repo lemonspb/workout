@@ -5,12 +5,8 @@ const initialState = {
     typeTrainingImage: '',
     sumCount: 90,
     minusSum: [],
-    timeTraining: 0,
-    trainingElement:{
-     sumCount: '',
-     typeTrainingImage: '',
-     timeTraining: 0,
-    }
+    timeTraining: 1,
+    trainingElement: {}
   };
   
   const reducer = (state = initialState, action) => {
@@ -38,10 +34,11 @@ const initialState = {
               
                     ...state,
                     sumCount:  state.sumCount-action.payload.number,
+                    timeTraining:0,
                     trainingElement:{
                     typeTrainingImage: state.typeTrainingImage,
                      sumCount: action.payload.number,
-                     timeTraining: 0,
+                     timeTraining: action.payload.time,
                     },
                       
                     minusSum:[...state.minusSum,state.trainingElement],

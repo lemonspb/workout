@@ -31,8 +31,10 @@ function ChoiceCountPage(props) {
                  </Link>
 
             </div> 
-             
+          
         )
+        
+          
         
     })}
     
