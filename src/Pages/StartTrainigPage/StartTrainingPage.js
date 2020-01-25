@@ -6,6 +6,7 @@ import Counter from '../../Components/Counter/Counter'
 import {Link} from 'react-router-dom'
 function StartTrainingPage(props) {
     
+  
 
   return (
     <div className='training-container'> 
@@ -22,7 +23,7 @@ function StartTrainingPage(props) {
                  </Link>
         </div>
     </div>
-    </div>
+    </div>  
   );
 }
 
