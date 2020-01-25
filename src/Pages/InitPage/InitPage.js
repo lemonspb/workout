@@ -14,7 +14,7 @@ function InitPage(props) {
   return (
     <div className="init">
       <Link to='/choice-count' onClick={()=>props.choiceTypeTraining(PullUpBase64())}>
-<video muted autoPlay loop playsInline className='init__gif' >
+<video muted autoPlay loop playsInline className=' init__gif' >
  <source src={PullUp} type="video/mp4" />
 </video>
 </Link> 
