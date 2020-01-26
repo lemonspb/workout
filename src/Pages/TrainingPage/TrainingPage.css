@@ -1,4 +1,9 @@
 
+
+.trainig{
+    max-width: 255px;
+}
+
 .trainig__list{
     display: flex;
 

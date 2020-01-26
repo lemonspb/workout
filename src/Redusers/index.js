@@ -56,9 +56,8 @@ const reducer = (state = initialState, action) => {
           doneAtOneTime: transferEllipsis(action.payload.number),
           timeTraining: action.payload.time,
         },
-        totalTime: state.totalTime+action.payload.time,
-        initialAmount: state.initialAmount+ action.payload.number,
-
+        totalTime: state.totalTime + action.payload.time,
+        initialAmount: state.initialAmount + action.payload.number,
         listComplitedTraining: [...state.listComplitedTraining, state.trainingElement],
       };
     default:
