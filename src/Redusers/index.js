@@ -26,6 +26,7 @@ const initialState = {
         return {
             ...state,
             typeTrainingImage: action.payload,
+            totalExercise: 90,
             trainingElement:{
               typeTrainingImage:action.payload
             }            

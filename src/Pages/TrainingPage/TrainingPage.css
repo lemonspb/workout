@@ -6,6 +6,7 @@
     align-items: center;
 }
 .trainig__top{
+    flex-wrap: wrap;
     width: 100%;
     display: flex;
 
