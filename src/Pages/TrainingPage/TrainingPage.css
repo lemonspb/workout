@@ -20,3 +20,9 @@
     text-align: center;
     font-size: 34px;
 }
+.traing__bottom-block{
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,5 +1,12 @@
 
 
+const transferEllipsis = (number) =>{
+  if(number === 0){
+    return '...'
+  }
+  else return number
+}
+
 
 const initialState = {
     typeTrainingImage: '',
@@ -42,7 +49,7 @@ const initialState = {
                     timeTraining:0,
                     trainingElement:{
                     typeTrainingImage: state.typeTrainingImage,
-                    totalExercise: action.payload.number,
+                    doneAtOneTime: transferEllipsis(action.payload.number),
                      timeTraining: action.payload.time,
                     },
                       

@@ -4,12 +4,12 @@ import { SumCountMinus } from '../../Actions';
 import Counter from '../../Components/Counter/Counter';
 import PullUp from '../../Gifs/pull_ups.gif.mp4';
 import PushUp from '../../Gifs/pushup.gif.mp4';
-import './TrainingPage.css'
-
+import './TrainingPage.css';
+import Watch from '../../Images/Watch.png'
 function TrainingPage(props) {
     const numbers = new Array(props.totalExercise).fill(0).map((v, i) => i+1)
     const [count, setCount] = useState(1);
-
+   const [isRelaxTime, setRelaxTime] = useState(false)
   const intervalId = useRef();
 
   useEffect(() => {
@@ -28,7 +28,7 @@ function TrainingPage(props) {
     return(
         <div className='trainig__result'>
        <img  src={el.typeTrainingImage} alt='' className='type-trainig' />
-       <Counter  number={el.sumCount} className='counter--dark'/>
+       <Counter  number={el.doneAtOneTime} className='counter--dark'/>
             <div>{el.timeTraining}sec</div>
         </div> 
     )
@@ -39,7 +39,7 @@ function TrainingPage(props) {
       
         {numbers.map((v,i)=>{
         return(
-            <div onClick={()=>{props.SumCountMinus(v,count);setCount(props.timeTraining)}}> 
+            <div onClick={()=>{props.SumCountMinus(v,count);setCount(props.timeTraining);setRelaxTime(true) }}> 
                  <Counter  number={v}  />
                  </div>
         )
@@ -47,10 +47,14 @@ function TrainingPage(props) {
     })} 
  
         </div>
-    </div>
+    </div>  
+<div className='traing__bottom-block'>
+{ isRelaxTime && <img  src={Watch} alt=''  onClick={()=>{props.SumCountMinus(0,count); setCount(props.timeTraining);setRelaxTime(false)} }/>}  
     {numbers.length === 0?<video muted autoPlay loop playsInline className='init__gif' >
  <source src={PullUp} type="video/mp4" />
 </video>:<div className='training__timer'>{count}sec</div>}
+</div>
+   
     
     
   
