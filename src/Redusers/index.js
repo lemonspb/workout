@@ -3,8 +3,8 @@
 
 const initialState = {
     typeTrainingImage: '',
-    sumCount: 90,
-    minusSum: [],
+    totalExercise: 90,
+    listComplitedTraining: [],
     timeTraining: 1,
     trainingElement: {
       typeTrainingImage:''
@@ -26,27 +26,27 @@ const initialState = {
             case 'CHOICE_SUM_COUNT':
             return {
                 ...state,
-                sumCount: action.payload
+                totalExercise: action.payload
 
             };
             case 'LOAD_MORE':
                 return {
                     ...state,
-                    sumCount: state.sumCount*2    
+                    totalExercise: state.totalExercise*2    
                 };
             case 'AMOUNT_COMPLETED':
                 return {
               
                     ...state,
-                    sumCount:  state.sumCount-action.payload.number,
+                    totalExercise:  state.totalExercise-action.payload.number,
                     timeTraining:0,
                     trainingElement:{
                     typeTrainingImage: state.typeTrainingImage,
-                     sumCount: action.payload.number,
+                    totalExercise: action.payload.number,
                      timeTraining: action.payload.time,
                     },
                       
-                    minusSum:[...state.minusSum,state.trainingElement],
+                    listComplitedTraining:[...state.listComplitedTraining,state.trainingElement],
                 };
       default:
         return state;

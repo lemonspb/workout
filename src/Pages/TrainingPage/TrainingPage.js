@@ -7,7 +7,7 @@ import PushUp from '../../Gifs/pushup.gif.mp4';
 import './TrainingPage.css'
 
 function TrainingPage(props) {
-    const numbers = new Array(props.sumCount).fill(0).map((v, i) => i+1)
+    const numbers = new Array(props.totalExercise).fill(0).map((v, i) => i+1)
     const [count, setCount] = useState(1);
 
   const intervalId = useRef();
@@ -19,13 +19,12 @@ function TrainingPage(props) {
     return () => clearInterval(intervalId.current);
   }, []);
 
-console.log(props.minusSum)
   return (
 
     <div className="trainig">
         <div className='training-container'> 
         <div className='trainig__top'>
-{props.minusSum.length !==0?props.minusSum.map((el)=>{
+{props.listComplitedTraining.length !==0?props.listComplitedTraining.map((el)=>{
     return(
         <div className='trainig__result'>
        <img  src={el.typeTrainingImage} alt='' className='type-trainig' />
@@ -60,8 +59,8 @@ console.log(props.minusSum)
 }
 
 
-const mapStateToProps = ({ sumCount,minusSum,timeTraining,typeTrainingImage }) => {
-  return { sumCount,minusSum,timeTraining,typeTrainingImage };
+const mapStateToProps = ({ totalExercise,listComplitedTraining,timeTraining,typeTrainingImage }) => {
+  return { totalExercise,listComplitedTraining,timeTraining,typeTrainingImage };
 };
 
 const mapDispatchToProps = {
