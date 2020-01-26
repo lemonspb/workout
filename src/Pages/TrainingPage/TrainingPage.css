@@ -12,11 +12,15 @@
 
 }
 .training__result{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    text-align: center;
 
+}
+.trainig__final{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 .training__timer{
     text-align: center;
     font-size: 34px;

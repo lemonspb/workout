@@ -13,6 +13,11 @@
    width: 500px;
    height: 100%;
 }
+.init__gif--mini-size{
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 
 @media screen and (max-width: 700px){
 .init{

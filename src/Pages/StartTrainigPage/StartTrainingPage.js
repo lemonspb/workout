@@ -3,38 +3,38 @@ import { connect } from 'react-redux';
 import { SumCountMinus } from '../../Actions';
 import Watch from '../../Images/Watch.png'
 import Counter from '../../Components/Counter/Counter'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 function StartTrainingPage(props) {
-    
-  
+
+
 
   return (
-    <div className='training-container'> 
-    <div className="start-trainig">
+    <div className='training-container'>
+      <div className="start-trainig">
         <div className='start-trainig__top'>
-        <img  src={props.typeTrainingImage} alt='' className='type-trainig' />
+          <img src={props.typeTrainingImage} alt='' className='type-trainig' />
 
-            <Counter  number={props.totalExercise} className='counter--dark'/>
+          <Counter number={props.totalExercise} className='counter--dark' />
         </div>
         <div className='start-trainig__list'>
-        <Link to='/training/'>
-        <img src={Watch}  alt=''  className='training-watch'/>
+          <Link to='/training/'>
+            <img src={Watch} alt='' className='training-watch' />
 
-                 </Link>
+          </Link>
         </div>
+      </div>
     </div>
-    </div>  
   );
 }
 
 
-const mapStateToProps = ({ totalExercise,typeTrainingImage }) => {
-  return { totalExercise,typeTrainingImage };
+const mapStateToProps = ({ totalExercise, typeTrainingImage }) => {
+  return { totalExercise, typeTrainingImage };
 };
 
 const mapDispatchToProps = {
-    SumCountMinus
+  SumCountMinus
 };
-export default 
-  connect(mapStateToProps,mapDispatchToProps)
-(StartTrainingPage);
+export default
+  connect(mapStateToProps, mapDispatchToProps)
+    (StartTrainingPage);
