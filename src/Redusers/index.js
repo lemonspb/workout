@@ -2,9 +2,8 @@
 
 const transferEllipsis = (number) => {
   if (number === 0) {
-    return '...'
-  }
-  else return number
+    return '...'}
+   return number
 }
 
 
@@ -15,10 +14,7 @@ const initialState = {
   listComplitedTraining: [],
   timeTraining: 1,
   initialAmount: 0,
-  trainingElement: {
-    typeTrainingImage: ''
-
-  }
+ 
 };
 
 const reducer = (state = initialState, action) => {
@@ -46,19 +42,20 @@ const reducer = (state = initialState, action) => {
         totalExercise: state.totalExercise * 2
       };
     case 'AMOUNT_COMPLETED':
+      const  trainingElement ={
+          typeTrainingImage: state.typeTrainingImage,
+          doneAtOneTime: transferEllipsis(action.payload.number),
+          timeTraining: action.payload.time,
+        };
       return {
 
         ...state,
         totalExercise: state.totalExercise - action.payload.number,
         timeTraining: 0,
-        trainingElement: {
-          typeTrainingImage: state.typeTrainingImage,
-          doneAtOneTime: transferEllipsis(action.payload.number),
-          timeTraining: action.payload.time,
-        },
+        
         totalTime: state.totalTime + action.payload.time,
         initialAmount: state.initialAmount + action.payload.number,
-        listComplitedTraining: [...state.listComplitedTraining, state.trainingElement],
+        listComplitedTraining: [...state.listComplitedTraining, trainingElement],
       };
     default:
       return state;
