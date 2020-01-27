@@ -29,10 +29,35 @@
 .training__timer{
     text-align: center;
     font-size: 34px;
+    cursor: pointer;
 }
 .traing__bottom-block{
     flex-direction: column;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.overlay-training{
+    background: rgba(0,0,0,.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.overlay-training__watch{
+width: 80px;
+height: 80px;
+object-fit: contain;
+margin-bottom: 10px;
+cursor: pointer;
+}
+.overlay-training__counter{
+    z-index: 2;
+    color: white;
+    font-size: 36px;
 }

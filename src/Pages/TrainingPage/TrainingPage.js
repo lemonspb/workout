@@ -61,16 +61,19 @@ function TrainingPage(props) {
         </div>
       </div>
       <div className='traing__bottom-block'>
-        {(isRelaxTime && numbers.length !== 0) && <img src={Watch} alt='' onClick={() => { props.SumCountMinus(0, count); setCount(props.timeTraining); setRelaxTime(false) }} />}
+    
         {numbers.length === 0 ? <div className='trainig__final'><video muted autoPlay loop playsInline className='init__gif init__gif--mini-size' >
-          <source src={PullUp} type="video/mp4" />
-        </video> 
-        
+          <source src={PullUp} type="video/mp4" /></video>         
         <Counter number={props.initialAmount} className='counter--dark' />
-        <div className='training__timer'>{convertTime(props.totalTime)}</div></div>: <div className='training__timer'>{convertTime(count)}</div>}
+        <div className='training__timer'>{convertTime(props.totalTime)}</div></div>:!isRelaxTime && <div className='training__timer'>{convertTime(count)}</div>}
 
       </div>
-      
+      {(isRelaxTime && numbers.length !== 0) &&
+        <div className='overlay-training'><img src={Watch} alt='' className='overlay-training__watch' onClick={() => { props.SumCountMinus(0, count); setCount(props.timeTraining); setRelaxTime(false) }} />
+        <div className='overlay-training__counter'>{convertTime(count)}</div>
+        </div>
+       }  
+
     </div>
   );
 }
