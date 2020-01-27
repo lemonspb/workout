@@ -2,9 +2,9 @@ import React, { useEffect, useState, useRef } from 'react';
 import { connect } from 'react-redux';
 import { SumCountMinus } from '../../Actions';
 import Counter from '../../Components/Counter/Counter';
-import PullUp from '../../Gifs/pull_ups.gif.mp4';
 import './TrainingPage.css';
-import Watch from '../../Images/Watch.png'
+import Watch from '../../Images/Watch.png';
+import {Redirect} from 'react-router-dom' 
 function TrainingPage(props) {
   const numbers = new Array(props.totalExercise).fill(0).map((v, i) => i + 1)
 
@@ -30,6 +30,12 @@ function TrainingPage(props) {
       clearInterval(intervalId.current)
     }
   }, [numbers])
+
+if(props.typeTrainingGif === ''){
+  return <Redirect to='/' />
+}
+
+
 
   return (
 

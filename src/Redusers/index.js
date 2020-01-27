@@ -11,6 +11,7 @@ const transferEllipsis = (number) => {
 const initialState = {
   totalTime: 0,
   typeTrainingImage: '',
+  typeTrainingGif:'',
   totalExercise: 90,
   listComplitedTraining: [],
   timeTraining: 1,
