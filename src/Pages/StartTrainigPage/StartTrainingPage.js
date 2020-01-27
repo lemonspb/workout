@@ -15,7 +15,7 @@ function StartTrainingPage(props) {
         <div className='start-trainig__top'>
         <h2 className='title-text'>Start training</h2>
 
-          <img src={props.typeTrainingImage} alt='' className='type-trainig' />
+          <img src={props.typeTrainingImage} alt='' className='type-trainig type-trainig--big' />
 
           <Counter number={props.totalExercise} className='counter--dark' />
         </div>

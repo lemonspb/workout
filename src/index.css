@@ -45,10 +45,12 @@ code {
   border-radius: 4px; 
   width: 40px;
   height: 40px;
-margin:5px;
+  margin:5px;
+  object-fit: contain;
 }
-.training-watch{
-  cursor: pointer;
+.type-trainig--big{
+width: 120px;
+height: 120px;
 }
 
 .title-text{
