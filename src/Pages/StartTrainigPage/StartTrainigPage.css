@@ -1,0 +1,10 @@
+.start-trainig__top{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.start-trainig__list{
+    text-align: center;
+}

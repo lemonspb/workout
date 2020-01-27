@@ -14,6 +14,7 @@ function InitPage(props) {
 
   return (
     <div className="init">
+      <h2 className='title-text'>Сhoose training type</h2>
       <Link to='/choice-count' onClick={() => props.choiceTypeTraining(PullUpBase64(),PullUpGifBase64())}>
         <video muted autoPlay loop playsInline className=' init__gif' >
           <source src={PullUp} type="video/mp4" />

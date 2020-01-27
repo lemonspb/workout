@@ -6,7 +6,7 @@
 
 .trainig__list{
     display: flex;
-
+    margin-bottom: 15px;
     flex-wrap: wrap;
     align-items: center;
 }
@@ -63,4 +63,10 @@ cursor: pointer;
     z-index: 2;
     color: white;
     font-size: 36px;
+}
+.overlay-training__title{
+    color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 10px;
+
 }

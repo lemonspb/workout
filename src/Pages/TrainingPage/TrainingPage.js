@@ -68,14 +68,25 @@ if(props.typeTrainingGif === ''){
       </div>
       <div className='traing__bottom-block'>
     
-        {numbers.length === 0 ? <div className='trainig__final'><video muted autoPlay loop playsInline className='init__gif init__gif--mini-size' >
-          <source src={props.typeTrainingGif} type="video/mp4" /></video>         
+        {numbers.length === 0 ? <div className='trainig__final'
+        >          
+
+          <video muted autoPlay loop playsInline className='init__gif init__gif--mini-size' >
+          <source src={props.typeTrainingGif} type="video/mp4" /></video>
+          <h2 className='title-text'>Total</h2>         
         <Counter number={props.initialAmount} className='counter--dark' />
-        <div className='training__timer'>{convertTime(props.totalTime)}</div></div>:!isRelaxTime && <div className='training__timer'>{convertTime(count)}</div>}
+        <div className='training__timer'>{convertTime(props.totalTime)}</div></div>:!isRelaxTime &&
+        <>
+         <h2 className='title-text'>Training time</h2>
+        <div className='training__timer'>{convertTime(count)}</div>
+        </>
+      }
 
       </div>
       {(isRelaxTime && numbers.length !== 0) &&
-        <div className='overlay-training'><img src={Watch} alt='' className='overlay-training__watch' onClick={() => { props.SumCountMinus(0, count); setCount(props.timeTraining); setRelaxTime(false) }} />
+        <div className='overlay-training'>
+                  <h2 className='overlay-training__title'>Relax time</h2>
+          <img src={Watch} alt='' className='overlay-training__watch' onClick={() => { props.SumCountMinus(0, count); setCount(props.timeTraining); setRelaxTime(false) }} />
         <div className='overlay-training__counter'>{convertTime(count)}</div>
         </div>
        }  
