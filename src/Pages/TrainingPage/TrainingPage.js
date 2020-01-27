@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { SumCountMinus } from '../../Actions';
 import Counter from '../../Components/Counter/Counter';
 import PullUp from '../../Gifs/pull_ups.gif.mp4';
-import PushUp from '../../Gifs/pushup.gif.mp4';
 import './TrainingPage.css';
 import Watch from '../../Images/Watch.png'
 function TrainingPage(props) {
@@ -11,8 +10,9 @@ function TrainingPage(props) {
 
   const convertTime = (totalSeconds) => {
     let minutes = Math.floor(totalSeconds / 60);
+    let conditionForMinutes = minutes === 0?'':`${minutes}m`
     let seconds = totalSeconds % 60;
-    return `${minutes ? minutes : ''} ${seconds}s`
+    return `${conditionForMinutes}${seconds}s`
   }
   const [count, setCount] = useState(1);
   const [isRelaxTime, setRelaxTime] = useState(false)
@@ -63,7 +63,7 @@ function TrainingPage(props) {
       <div className='traing__bottom-block'>
     
         {numbers.length === 0 ? <div className='trainig__final'><video muted autoPlay loop playsInline className='init__gif init__gif--mini-size' >
-          <source src={PullUp} type="video/mp4" /></video>         
+          <source src={props.typeTrainingGif} type="video/mp4" /></video>         
         <Counter number={props.initialAmount} className='counter--dark' />
         <div className='training__timer'>{convertTime(props.totalTime)}</div></div>:!isRelaxTime && <div className='training__timer'>{convertTime(count)}</div>}
 
@@ -79,8 +79,8 @@ function TrainingPage(props) {
 }
 
 
-const mapStateToProps = ({ totalExercise, listComplitedTraining, timeTraining, typeTrainingImage, totalTime,initialAmount }) => {
-  return { totalExercise, listComplitedTraining, timeTraining, typeTrainingImage, totalTime,initialAmount };
+const mapStateToProps = ({ totalExercise, listComplitedTraining, timeTraining, typeTrainingImage, totalTime,initialAmount,typeTrainingGif }) => {
+  return { totalExercise, listComplitedTraining, timeTraining, typeTrainingImage, totalTime,initialAmount,typeTrainingGif };
 };
 
 const mapDispatchToProps = {

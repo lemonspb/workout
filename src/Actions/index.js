@@ -1,7 +1,10 @@
-const choiceTypeTraining = (file) => {
+const choiceTypeTraining = (image,gif) => {
     return {
       type: 'CHOICE_TRAINING_TYPE',
-      payload: file
+      payload:{
+        image,
+        gif
+      } 
     };
   };
  
