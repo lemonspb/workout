@@ -1,29 +1,32 @@
-.init{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    width: 100%;
-    background-color: #F1D95C; 
+.init {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  background-color: #f1d95c;
+}
+.init__link{
+    margin-bottom: -3px;
+    
 }
 
-.init__gif{
-   cursor: pointer;
-   width: 500px;
-   height: 100%;
+.init__gif {
+  cursor: pointer;
+  width: 500px;
+  height: 100%;
 }
-.init__gif--mini-size{
-    width: 100%;
-    margin-top: 20px;
-    margin-bottom: 20px;
+.init__gif--mini-size {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-@media screen and (max-width: 700px){
-.init{
+@media screen and (max-width: 700px) {
+  .init {
     justify-content: center;
-
+  }
+  .init__gif {
+    width: 100%;
+  }
 }
-.init__gif{
-    width:  100%;
-    }
-} 

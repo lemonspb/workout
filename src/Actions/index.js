@@ -24,8 +24,8 @@ const choiceTypeTraining = (image,gif) => {
     return {
       type: 'AMOUNT_COMPLETED',
       payload: {
-          number:number,
-          time: time
+          number,
+          time
       }
     };
   };

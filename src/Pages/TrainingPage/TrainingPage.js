@@ -4,13 +4,13 @@ import { SumCountMinus } from '../../Actions';
 import Counter from '../../Components/Counter/Counter';
 import './TrainingPage.css';
 import Watch from '../../Images/Watch.png';
-import {Redirect} from 'react-router-dom' 
+import { Redirect,Link } from 'react-router-dom'
 function TrainingPage(props) {
   const numbers = new Array(props.totalExercise).fill(0).map((v, i) => i + 1)
 
   const convertTime = (totalSeconds) => {
     let minutes = Math.floor(totalSeconds / 60);
-    let conditionForMinutes = minutes === 0?'':`${minutes}m`
+    let conditionForMinutes = minutes === 0 ? '' : `${minutes}m`
     let seconds = totalSeconds % 60;
     return `${conditionForMinutes}${seconds}s`
   }
@@ -31,9 +31,9 @@ function TrainingPage(props) {
     }
   }, [numbers])
 
-if(props.typeTrainingGif === ''){
-  return <Redirect to='/' />
-}
+  if (props.typeTrainingGif === '') {
+    return <Redirect to='/' />
+  }
 
 
 
@@ -57,7 +57,7 @@ if(props.typeTrainingGif === ''){
 
           {numbers.map((v, i) => {
             return (
-              <div onClick={() => { props.SumCountMinus(v, count); setCount(props.timeTraining); setRelaxTime(true) }}>
+              <div onClick={() => { props.SumCountMinus(v, count); setCount(props.timeTraining); setRelaxTime(true) }} key={i}>
                 <Counter number={v} />
               </div>
             )
@@ -67,37 +67,43 @@ if(props.typeTrainingGif === ''){
         </div>
       </div>
       <div className='traing__bottom-block'>
-    
-        {numbers.length === 0 ? <div className='trainig__final'
-        >          
 
-          <video muted autoPlay loop playsInline className='init__gif init__gif--mini-size' >
-          <source src={props.typeTrainingGif} type="video/mp4" /></video>
-          <h2 className='title-text'>Total</h2>         
-        <Counter number={props.initialAmount} className='counter--dark' />
-        <div className='training__timer'>{convertTime(props.totalTime)}</div></div>:!isRelaxTime &&
-        <>
-         <h2 className='title-text'>Training time</h2>
-        <div className='training__timer'>{convertTime(count)}</div>
-        </>
-      }
+        {numbers.length === 0 
+          ?<div className='trainig__final'>
+            <video muted autoPlay loop playsInline className='init__gif init__gif--mini-size' >
+            <source src={props.typeTrainingGif} type="video/mp4" /></video>
+          <h2 className='title-text'>Total</h2>
+          <Counter number={props.initialAmount} className='counter--dark' />
+          <div className='training__timer'>{convertTime(props.totalTime)}</div>
+          <Link to='/'>
+          <button className='btn'>New workout</button>
+          </Link>
+          </div> 
+          : !isRelaxTime &&
+          <>
+            <h2 className='title-text'>Training time</h2>
+            <div className='training__timer'>{convertTime(count)}</div>
+          
+          </>
+        }
 
       </div>
       {(isRelaxTime && numbers.length !== 0) &&
         <div className='overlay-training'>
-                  <h2 className='overlay-training__title'>Relax time</h2>
+          <h2 className='overlay-training__title'>Relax time</h2>
           <img src={Watch} alt='' className='overlay-training__watch' onClick={() => { props.SumCountMinus(0, count); setCount(props.timeTraining); setRelaxTime(false) }} />
-        <div className='overlay-training__counter'>{convertTime(count)}</div>
+          <div className='overlay-training__counter'>{convertTime(count)}</div>
+          
         </div>
-       }  
+      }
 
     </div>
   );
 }
 
 
-const mapStateToProps = ({ totalExercise, listComplitedTraining, timeTraining, typeTrainingImage, totalTime,initialAmount,typeTrainingGif }) => {
-  return { totalExercise, listComplitedTraining, timeTraining, typeTrainingImage, totalTime,initialAmount,typeTrainingGif };
+const mapStateToProps = ({ totalExercise, listComplitedTraining, timeTraining, typeTrainingImage, totalTime, initialAmount, typeTrainingGif }) => {
+  return { totalExercise, listComplitedTraining, timeTraining, typeTrainingImage, totalTime, initialAmount, typeTrainingGif };
 };
 
 const mapDispatchToProps = {
