@@ -45,7 +45,7 @@ const reducer = (state = initialState, action) => {
       };
     case 'AMOUNT_COMPLETED':
       const trainingElement = {
-        typeTrainingImage: state.typeTrainingImage,
+        typeTrainingImage: action.payload.image,
         doneAtOneTime: transferEllipsis(action.payload.number),
         timeTraining: action.payload.time,
         

@@ -20,12 +20,13 @@ const choiceTypeTraining = (image,gif) => {
       
     };
   };
-  const SumCountMinus = (number,time) => {
+  const SumCountMinus = (number,time,image) => {
     return {
       type: 'AMOUNT_COMPLETED',
       payload: {
           number,
-          time
+          time,
+          image
       }
     };
   };

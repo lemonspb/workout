@@ -1,15 +1,13 @@
-
-.choice-count__top{
-    margin-right: auto;
-    margin-bottom: 20px;
+.choice-count__top {
+  margin-right: auto;
+  margin-bottom: 20px;
 }
 
-.choice-count__list{
-    display: flex;
-
-    flex-wrap: wrap;
-    align-items: center;
+.choice-count__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
-.choice-count__link{
-    text-decoration: none;
+.choice-count__link {
+  text-decoration: none;
 }

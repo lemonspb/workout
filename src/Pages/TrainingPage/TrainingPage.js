@@ -3,9 +3,13 @@ import { connect } from 'react-redux';
 import { SumCountMinus } from '../../Actions';
 import Counter from '../../Components/Counter/Counter';
 import './TrainingPage.css';
-import Watch from '../../Images/Watch.png';
-import { Redirect,Link } from 'react-router-dom'
+import {WatchBase64} from '../../Images/base64'
+import { Redirect, Link } from 'react-router-dom';
 function TrainingPage(props) {
+
+  const [count, setCount] = useState(1);
+  const [isRelaxTime, setRelaxTime] = useState(false)
+  const intervalId = useRef();
   const numbers = new Array(props.totalExercise).fill(0).map((v, i) => i + 1)
 
   const convertTime = (totalSeconds) => {
@@ -14,9 +18,6 @@ function TrainingPage(props) {
     let seconds = totalSeconds % 60;
     return `${conditionForMinutes}${seconds}s`
   }
-  const [count, setCount] = useState(1);
-  const [isRelaxTime, setRelaxTime] = useState(false)
-  const intervalId = useRef();
 
   useEffect(() => {
     intervalId.current = setInterval(() => {
@@ -35,14 +36,12 @@ function TrainingPage(props) {
     return <Redirect to='/' />
   }
 
-
-
   return (
-
     <div className="trainig">
       <div className='training-container'>
         <div className='trainig__top'>
-          {props.listComplitedTraining.length !== 0 ? props.listComplitedTraining.map((el) => {
+          {props.listComplitedTraining.length !== 0 
+          ? props.listComplitedTraining.map((el) => {
             return (
               <div className='training__result'>
                 <img src={el.typeTrainingImage} alt='' className='type-trainig' />
@@ -50,40 +49,41 @@ function TrainingPage(props) {
                 <div>{convertTime(el.timeTraining)}</div>
               </div>
             )
-          }) : <img src={props.typeTrainingImage} alt='' className='type-trainig' />}
+          }) 
+          : <img src={props.typeTrainingImage} alt='' className='type-trainig' />}
         </div>
 
         <div className='trainig__list'>
 
           {numbers.map((v, i) => {
             return (
-              <div onClick={() => { props.SumCountMinus(v, count); setCount(props.timeTraining); setRelaxTime(true) }} key={i}>
+              <div onClick={() => { props.SumCountMinus(v, count,props.typeTrainingImage); setCount(props.timeTraining); setRelaxTime(true) }} key={i}>
                 <Counter number={v} />
               </div>
             )
-
           })}
 
         </div>
       </div>
       <div className='traing__bottom-block'>
 
-        {numbers.length === 0 
-          ?<div className='trainig__final'>
+        {numbers.length === 0
+          ? <div className='trainig__final'>
+            <h2 className='title-text'>Congratulations you did it!</h2>
             <video muted autoPlay loop playsInline className='init__gif init__gif--mini-size' >
-            <source src={props.typeTrainingGif} type="video/mp4" /></video>
-          <h2 className='title-text'>Total</h2>
-          <Counter number={props.initialAmount} className='counter--dark' />
-          <div className='training__timer'>{convertTime(props.totalTime)}</div>
-          <Link to='/'>
-          <button className='btn'>New workout</button>
-          </Link>
-          </div> 
+              <source src={props.typeTrainingGif} type="video/mp4" />
+            </video>
+            <h2 className='title-text'>Total</h2>
+            <Counter number={props.initialAmount} className='counter--dark' />
+            <div className='training__timer'>{convertTime(props.totalTime)}</div>
+            <Link to='/'>
+              <button className='btn'>New workout</button>
+            </Link>
+          </div>
           : !isRelaxTime &&
           <>
             <h2 className='title-text'>Training time</h2>
             <div className='training__timer'>{convertTime(count)}</div>
-          
           </>
         }
 
@@ -91,9 +91,9 @@ function TrainingPage(props) {
       {(isRelaxTime && numbers.length !== 0) &&
         <div className='overlay-training'>
           <h2 className='overlay-training__title'>Relax time</h2>
-          <img src={Watch} alt='' className='overlay-training__watch' onClick={() => { props.SumCountMinus(0, count); setCount(props.timeTraining); setRelaxTime(false) }} />
+          <img src={WatchBase64()} alt='' className='overlay-training__watch'
+          onClick={() => { props.SumCountMinus(0, count, WatchBase64()); setCount(props.timeTraining); setRelaxTime(false) }} />
           <div className='overlay-training__counter'>{convertTime(count)}</div>
-          
         </div>
       }
 
